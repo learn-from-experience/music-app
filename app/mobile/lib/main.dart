@@ -18,7 +18,9 @@ class MainApp extends StatelessWidget {
       getPages: getPages,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0x001e1e1e),
-        textTheme: TextTheme(bodyLarge: GoogleFonts.inter(fontSize: 16)),
+        textTheme: TextTheme(
+          bodyLarge: GoogleFonts.inter(fontSize: 16),
+        ),
       ),
     );
   }
