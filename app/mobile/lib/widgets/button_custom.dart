@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ButtonRounded extends StatelessWidget {
+class ButtonCustom extends StatelessWidget {
   final String text;
   final Color backgroundColor;
   final Color borderColor;
@@ -11,7 +11,7 @@ class ButtonRounded extends StatelessWidget {
   final Widget? icon;
   final VoidCallback onPressed;
 
-  const ButtonRounded({
+  const ButtonCustom({
     Key? key,
     required this.text,
     this.backgroundColor = Colors.white,

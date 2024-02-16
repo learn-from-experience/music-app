@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile/router/routes.dart';
+import 'package:mobile/utils/colors.dart';
 
 void main() {
   runApp(const MainApp());
@@ -17,7 +18,7 @@ class MainApp extends StatelessWidget {
       initialRoute: Routes.auth,
       getPages: getPages,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0x001e1e1e),
+        scaffoldBackgroundColor: Color(ColorCustom.mainColor),
         textTheme: TextTheme(
           bodyLarge: GoogleFonts.inter(fontSize: 16),
         ),
