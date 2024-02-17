@@ -16,6 +16,7 @@ class EmptyLayout extends StatelessWidget {
         body: Container(
           padding: padding,
           height: double.infinity,
+          width: double.infinity,
           color: Colors.black,
           child: child,
         ),

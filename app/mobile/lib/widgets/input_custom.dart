@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InputCustom extends StatefulWidget {
   final String? hint;
   final IconData? prefixIcon;
+  final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
+  final bool? isHiddenText;
 
-  const InputCustom({Key? key, this.hint, this.prefixIcon}) : super(key: key);
+  const InputCustom({
+    Key? key,
+    this.hint,
+    this.prefixIcon,
+    this.onChanged,
+    this.isHiddenText = false,
+    this.validator,
+  }) : super(key: key);
 
   @override
   _InputCustomState createState() => _InputCustomState();
@@ -29,6 +40,7 @@ class _InputCustomState extends State<InputCustom> {
         _isFocused = _focusNode.hasFocus;
       });
     });
+    print('xin chao ${widget.isHiddenText}');
     super.initState();
   }
 
@@ -40,21 +52,24 @@ class _InputCustomState extends State<InputCustom> {
         style: TextStyle(
           color: Colors.white,
         ),
+        obscureText: widget.isHiddenText ?? false,
         cursorColor: Colors.white,
+        onChanged: widget.onChanged,
+        validator: widget.validator,
         decoration: InputDecoration(
-          prefixIcon: widget.prefixIcon != null
-              ? Icon(
-                  widget.prefixIcon,
-                  color: _isFocused ? Colors.white : Colors.grey,
-                )
-              : null,
-          border: customBorder,
-          focusedBorder: customBorder,
-          hintStyle: TextStyle(
-            color: Colors.white.withOpacity(0.5),
-          ),
-          hintText: widget.hint,
-        ),
+            prefixIcon: widget.prefixIcon != null
+                ? Icon(
+                    widget.prefixIcon,
+                    color: _isFocused ? Colors.white : Colors.grey,
+                  )
+                : null,
+            border: customBorder,
+            focusedBorder: customBorder,
+            hintStyle: TextStyle(
+              color: Colors.white.withOpacity(0.5),
+            ),
+            hintText: widget.hint,
+            errorStyle: GoogleFonts.inter(fontSize: 14)),
         focusNode: _focusNode,
       ),
     );
