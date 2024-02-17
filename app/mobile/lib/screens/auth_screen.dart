@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile/layouts/empty_layout.dart';
 import 'package:mobile/router/routes.dart';
+import 'package:mobile/screens/home_screen.dart';
 import 'package:mobile/screens/login_screen.dart';
+import 'package:mobile/screens/register_screen.dart';
 import 'package:mobile/widgets/button_custom.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -35,13 +37,35 @@ class AuthScreen extends StatelessWidget {
           ButtonCustom(
             text: "Sign Up",
             onPressed: () {
-              Get.toNamed(Routes.signUp);
+              Get.to(
+                () => RegisterScreen(),
+                transition: Transition.rightToLeft,
+              );
             },
             textStyleCustom: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
+          ),
+          SizedBox(height: 16),
+          ButtonCustom(
+            text: "Sign In",
+            onPressed: () {
+              Get.to(
+                () => LoginScreen(),
+                transition: Transition.rightToLeft,
+              );
+            },
+            textStyleCustom: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.white.withOpacity(0.75),
+            ),
+            backgroundColor: Colors.transparent,
+            borderColor: Colors.white,
+            borderRadius: 100,
+            borderWidth: 2,
           ),
           SizedBox(height: 16),
           ButtonCustom(
@@ -63,11 +87,11 @@ class AuthScreen extends StatelessWidget {
           ),
           SizedBox(height: 16),
           ButtonCustom(
-            text: "Sign In",
+            text: "Guest",
             onPressed: () {
               Get.to(
-                () => LoginScreen(),
-                transition: Transition.rightToLeft,
+                () => HomeScreen(),
+                transition: Transition.fade,
               );
             },
             textStyleCustom: TextStyle(

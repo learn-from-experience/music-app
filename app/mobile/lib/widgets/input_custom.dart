@@ -7,6 +7,7 @@ class InputCustom extends StatefulWidget {
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
   final bool? isHiddenText;
+  final TextEditingController? controller;
 
   const InputCustom({
     Key? key,
@@ -15,6 +16,7 @@ class InputCustom extends StatefulWidget {
     this.onChanged,
     this.isHiddenText = false,
     this.validator,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -56,6 +58,7 @@ class _InputCustomState extends State<InputCustom> {
         cursorColor: Colors.white,
         onChanged: widget.onChanged,
         validator: widget.validator,
+        controller: widget.controller,
         decoration: InputDecoration(
             prefixIcon: widget.prefixIcon != null
                 ? Icon(

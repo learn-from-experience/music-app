@@ -4,13 +4,13 @@ import 'package:mobile/screens/home_screen.dart';
 
 class LoginController extends GetxController {
   final formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   String? onValidateEmail(String? val) {
     if (!GetUtils.isEmail(val ?? "")) {
-      print("false");
       return "Email is invalid";
     }
-    print("true");
     return null;
   }
 
@@ -26,6 +26,11 @@ class LoginController extends GetxController {
     if (!formKey.currentState!.validate()) {
       return;
     }
+    final user = {
+      "email": emailController.value.text,
+      "password": passwordController.value.text,
+    };
+    print("User: ${user.toString()}");
 
     Get.offAll(
       () => HomeScreen(),

@@ -41,12 +41,14 @@ class LoginScreen extends StatelessWidget {
                     hint: "Enter your email",
                     prefixIcon: Icons.email,
                     validator: _loginController.onValidateEmail,
+                    controller: _loginController.emailController,
                   ),
                   InputCustom(
                     hint: "Enter your password",
                     prefixIcon: Icons.lock,
                     isHiddenText: true,
                     validator: _loginController.onValidatePwd,
+                    controller: _loginController.passwordController,
                   ),
                   SizedBox(height: 10),
                   ButtonCustom(
